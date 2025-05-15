@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>THAI | AGRITECH</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Kanit', sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f9;
+            color: #333;
+        }
+        header, footer {
+            background-color: #1ea758;
+            color: white;
+            text-shadow: 
+            -1px -1px 0 black,  
+            1px -1px 0 black,
+            -1px  1px 0 black,
+            1px  1px 0 black;
+            text-align: center;
+            padding: 1.5em 1em;
+        }
+        header img {
+            margin-top: 1em;
+            max-height: 1000px;
+        }
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            background-color: #a2de56;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1em 2em;
+            flex-wrap: wrap;
+        }
+        .logo {
+            color: white;
+            text-shadow: 
+            -1px -1px 0 black,  
+            1px -1px 0 black,
+            -1px  1px 0 black,
+            1px  1px 0 black;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 1.5em;
+        }
+        .nav-links a {
+            color: white;
+            text-shadow: 
+            -1px -1px 0 black,  
+            1px -1px 0 black,
+            -1px  1px 0 black,
+            1px  1px 0 black;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover {
+            color: #FFD700;
+        }
+        #topBtn {
+            display: none;
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            z-index: 99;
+            font-size: 18px;
+            background-color: #1753c2;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        #topBtn:hover {
+            background-color: #0d3d99;
+        }
+        main {
+            padding: 2em;
+            max-width: 1100px;
+            margin: auto;
+        }
+        section {
+            margin-bottom: 3em;
+        }
+        h2 {
+            color: #6ab144;
+            margin-bottom: 1em;
+            border-bottom: 2px solid #ccc;
+            padding-bottom: 0.5em;
+        }
+        video {
+            width: 100%;
+            border-radius: 8px;
+            margin-top: 1em;
+        }
+        ul {
+            margin-left: 1.5em;
+            list-style-type: disc;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 1em;
+            border-radius: 8px;
+        }
+        .product-description {
+            background-color: #fff;
+            padding: 1.5em;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            margin-top: 1em;
+        }
+        .contact-description {
+            background-color: #fff;
+            padding: 1.5em;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            margin-top: 1em;
+        }
+        footer {
+            font-size: 0.9em;
+        }
+        .slider-container {
+            position: relative;
+            max-width: 800px;
+            margin: 40px auto;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        .slider {
+            width: 100%;
+            max-width: 800px;
+            height: 450px;
+            overflow: hidden;
+            margin: 40px auto;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+        .slides {
+            display: flex;
+            width: 300%;
+            animation: slide 16s infinite;
+        }
+        .slide {
+            width: 100%;
+            transition: 0.6s;
+        }
+        .slides img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .nav-links {
+                flex-direction: column;
+                gap: 0.8em;
+                margin-top: 1em;
+            }
+        }
+
+        @keyframes slide {
+            0%, 20% { margin-left: 0%; }
+            25%, 45% { margin-left: -100%; }
+            50%, 70% { margin-left: -200%; }
+            75%, 95% { margin-left: -300%; }
+            100% { margin-left: 0%; }
+        }
+
+        @media (max-width: 768px) {
+            .slider{
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="logo.png" alt="โลโก้บริษัท">
+</header>
+
+<nav class="navbar">
+    <div class="logo">LAILA AVIATION</div>
+    <ul class="nav-links">
+        <li><a href="#about">เกี่ยวกับเรา</a></li>
+        <li><a href="#services">บริการ</a></li>
+        <li><a href="#commitment">ความมุ่งมั่นเรา</a></li>
+        <li><a href="#partner">เครือข่ายพันธมิตร</a></li>
+        <li><a href="#contact">ติดต่อเรา</a></li>
+    </ul>
+</nav>
+<button onclick="scrollToTop()" id="topBtn" title="กลับด้านบน">⬆</button>
+
+<main>
+    <section id="about">
+        <h2>เกี่ยวกับเรา</h2>
+        <p>
+            ในช่วงปี พ.ศ. 2560 ทางบริษัทได้เห็นว่าการพัฒนาอากาศยานไร้คนขับ (unmanned aerial vehicle: UAV) เพื่อใช้ในงานด้านการเกษตร เป็นการเพิ่มมูลค่าของผลิตภัณฑ์ และคุณค่าทางเศรษฐกิจให้กับเกษตรกรไทย ลดการใช้แรงงานในการผลิต และเพิ่มประสิทธิภาพการผลิตของประเทศไทยสู่การแข่งขันในตลาดโลก โดยมีจุดเด่นคือความสามารถในการควบคุมตำแหน่งความสูงที่ถูกต้องแม่นยำ มีความเสถียรภาพของอากาศยาน สามารถพ่นสารน้ำ สารชีวภาพ การให้ปุ๋ย และพ่นสารกำจัดแมลง ทางบริษัทได้ให้บริการเกษตรกรเล็งเห็นว่าเกษตรกรประสบปัญหาการใส่ปุ๋ยให้แก่พืชมากเกินไปหรือน้อยเกินไปจึงทำให้พืชเจริญเติบโตไม่สมบูรณ์ ทำให้พืชบางพื้นที่เสียเปล่า เกษตรกรขาดทุน และในกรณีที่เกษตรกรส่งออกพืชผล ที่ไม่สามารถประมาณการยอดผลผลิตได้จะทำให้เกิดความเสี่ยงต่อสัญญาซื้อขาย ในการถูกปรับในกรณีคำนวณยอดผลิตผิดพลาด ทางบริษัทจึงเริ่มพัฒนาระบบการประมวลผลภาพดิจิทัลร่วมกับอากาศยานไร้คนขับเพื่อการเกษตรที่มีความแม่นยำสูงในการตรวจสอบความอุดมสมบูรณ์ของพืชด้วยกล้อง สามารถบริหารจัดการการสำรวจได้ง่าย และยังได้ข้อมูล ในระยะเวลาอันสั้น และสามารถเก็บข้อมูลภูมิสารสนเทศอื่น ๆ ได้แก่ ลักษณะภูมิประเทศ ดิน น้ำ พืชพรรณ ซึ่งจะมีประโยชน์มากยิ่งขึ้นต่อการวิเคราะห์สถานการณ์ก่อนและหลังเหตุการณ์ นอกจากนี้ ยังมีความแม่นยำสูงในการประมาณการยอดผลผลิตของพืชต่อครั้งได้ สามารถทราบผลผลิตที่แน่ชัดและบริหารจัดการในการขายได้อย่างถูกต้องและมีประสิทธิภาพ
+        </p>
+        <video controls>
+            <source src="video1.mp4" type="video/mp4">
+        </video>
+    </section>
+
+    <section id="services">
+        <h2>บริการของเรา</h2>
+        <ul>
+            <li>จำหน่ายอุปกรณ์โดรนเพื่อการเกษตร</li>
+            <li>บริการซ่อมบำรุงและอะไหล่</li>
+            <li>ให้คำปรึกษาและฝึกอบรมการใช้งาน</li>
+        </ul>
+
+
+        <div class="product-description">
+            <h3>จำหน่ายอุปกรณ์</h3>
+            <img src="pic1.1.png" alt="ภาพสินค้า">
+            <img src="pic1.2.png" alt="ภาพสินค้า">
+            <p>เราจำหน่ายโดรนเกษตรคุณภาพสูง พร้อมบริการติดตั้งฟรี เครื่องทุกตัวผ่านการทดสอบจริงในภาคสนาม ช่วยลดต้นทุน เพิ่มผลผลิต และทำงานได้แม่นยำยิ่งขึ้น เพื่อให้เกษตรกรสามารถเริ่มใช้งานได้ทันทีอย่างมั่นใจ</p>
+        </div>
+
+        <div class="product-description">
+            <h3>บริการซ่อมบำรุงและอะไหล่</h3>
+            <img src="pic3.1.png" alt="ภาพสินค้า">
+            <img src="pic3.2.png" alt="ภาพสินค้า">
+            <p>เรามีบริการให้คำปรึกษาและอบรมการใช้งานโดยผู้เชี่ยวชาญ ทั้งการบิน การพ่น การดูแลรักษา และการวิเคราะห์ข้อมูล เพื่อให้ใช้งานได้เต็มประสิทธิภาพ แม้ไม่มีพื้นฐาน</p>
+        </div>
+
+        <div class="product-description"> 
+            <h3>ให้คำปรึกษาและฝึกอบรมการใช้งาน</h3>
+            <img src="pic2.1.png" alt="ภาพสินค้า">
+            <img src="pic2.2.png" alt="ภาพสินค้า">
+            <p>เราพร้อมบริการซ่อมโดรนทุกอาการ ใช้อะไหล่แท้มาตรฐาน และมีบริการตรวจเช็กตามรอบการใช้งาน ช่วยยืดอายุและลดปัญหาระยะยาว</p>
+        </div>
+    </section>
+
+    <section id="commitment">
+        <video controls>
+            <source src="video2.mp4" type="video/mp4">
+        </video>
+        <video controls>
+            <source src="video3.mp4" type="video/mp4">
+        </video>
+    </section>
+
+    <section id="partner">
+      <h2>เครือข่ายพันธมิตร</h2>
+        <div class="slider">
+          <div class="slides">
+            <img src="Gistda.png" alt="ภาพที่ 1">
+            <img src="depa.png" alt="ภาพที่ 2">
+            <img src="mor ubon and nia.png" alt="ภาพที่ 3">
+            <img src="ted fund.png" alt="ภาพที่ 4">
+          </div>
+        </div>
+    </section>
+
+    <section id="contact">
+      <div class="contact-description">
+        <h2>ติดต่อเรา</h2>
+        <img src="email.png" alt="ไอคอนอีเมล">
+        <p>อีเมล: <a href="mailto:montribox@gmail.com">montribox@gmail.com</a></p>
+        <img src="phone.png" alt="ไอคอนโทรศัพท์">
+        <p>โทร: 084-115-5940 (คุณมนตรี)<br>
+            โทร: 095-767-0039 (คุณเล็ก)</p>
+        <img src="qr_line.jpg" alt="ภาพคิวอาโค้ดไลน์">
+        <p>คิวอาโค้ดไลน์</p>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2025 LAILA AVIATION | บริษัท ไลลา เอวิเอชั่น จำกัด</p>
+</footer>
+
+<script>
+  // แสดงปุ่มเมื่อเลื่อนลง
+  window.onscroll = function () {
+    const topBtn = document.getElementById("topBtn");
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+      topBtn.style.display = "block";
+    } else {
+      topBtn.style.display = "none";
+    }
+  };
+
+  // กลับไปด้านบนอย่างนุ่มนวล
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+
+</body>
+</html>
