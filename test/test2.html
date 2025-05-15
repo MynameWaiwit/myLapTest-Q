@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>รายละเอียดคำสั่งซื้อ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+     * { box-sizing: border-box; }
+   
+    body {
+      font-family: 'Prompt', sans-serif;
+      margin: 0;
+      background: #f0f2f5;
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(90deg, #000000, #d10e0ee0);
+      color: white;
+      padding: 1.5rem;
+      text-align: center;
+      font-size: 1.5rem;
+    }
+
+    h1 {
+      text-align: center;
+      color: #000000;
+    }
+
+    .order-container {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .order {
+      border-bottom: 1px solid #ccc;
+      padding: 1rem 0;
+    }
+
+    .order:last-child {
+      border-bottom: none;
+    }
+
+    .order h3 {
+      margin: 0 0 0.5rem;
+    }
+
+    .order-items {
+      margin-left: 1rem;
+    }
+
+    .order-item {
+      margin-bottom: 0.3rem;
+    }
+    .button-link {
+      display: inline-block;
+      padding: 10px 20px;
+      
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 16px;
+      transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    
+
+.button-link:hover {
+      
+      transform: scale(1.05); /* ขยายขนาดเล็กน้อย */
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* เงา */
+    }
+/* ปุ่มทั่วไปทุกประเภท */
+button, .btn-promo, .product button, .cart button {
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* เอฟเฟกต์เมื่อ hover */
+button:hover, .btn-promo:hover, .product button:hover, .cart button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+  </style>
+</head>
+<body>
+
+  
+<header style="text-align: left;">
+  Mystore
+  <p><a href="test.html" class="button-link">Menu</a>
+    <a href="testRewards.html" class="button-link">Rewards</a>
+  <a href="test2.html" class="button-link">คำสั่งซื้อ</a>
+  
+  </p>
+   
+</header>
+<h1>รายละเอียดคำสั่งซื้อ</h1>
+
+<div class="order-container" id="order-list">
+  <!-- รายการคำสั่งซื้อจะแสดงตรงนี้ -->
+</div>
+
+<script>
+  async function loadOrders() {
+    try {
+      const res = await fetch('get_orders.php');
+      const orders = await res.json();
+
+      const list = document.getElementById('order-list');
+      list.innerHTML = '';
+
+      if (!orders.length) {
+        list.innerHTML = '<p>ไม่มีคำสั่งซื้อ</p>';
+        return;
+      }
+
+      orders.forEach(order => {
+        const div = document.createElement('div');
+        div.className = 'order';
+
+        let itemsHtml = '';
+        order.items.forEach(item => {
+          itemsHtml += `<div class="order-item">- ${item.name} (${item.quantity} ชิ้น) - ${item.price} บาท</div>`;
+        });
+
+        div.innerHTML = `
+          <h3>ชื่อ: ${order.name} | เบอร์: ${order.phone}</h3>
+          <div class="order-items">${itemsHtml}</div>
+          <strong>รวม: ${order.total} บาท</strong>
+        `;
+        list.appendChild(div);
+      });
+    } catch (err) {
+      console.error(err);
+      document.getElementById('order-list').innerHTML = '<p>เกิดข้อผิดพลาดในการโหลดข้อมูล</p>';
+    }
+  }
+
+  loadOrders();
+</script>
+
+</body>
+</html>
